@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Pengaduan K3</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>PENGADUAN K3 PERUSAHAAN HIMPU</h1>
+</header>
+
+<nav>
+  <button onclick="showSection('login')">Login</button>
+  <button onclick="showSection('register')">Registrasi</button>
+  <button onclick="showSection('dashboard')">Dashboard</button>
+  <button onclick="showSection('complaintForm')">Pengaduan</button>
+  <button onclick="showSection('profile')">Profil</button>
+</nav>
+
+<!-- Login -->
+<section id="login" class="active">
+  <h2>Login</h2>
+  <label for="loginEmail">Email</label>
+  <input type="email" id="loginEmail" autocomplete="username" />
+  <label for="loginPassword">Password</label>
+  <input type="password" id="loginPassword" autocomplete="current-password" />
+  <div id="loginError" class="error"></div>
+  <button class="submit-btn" onclick="login()">Masuk</button>
+</section>
+
+<!-- Register -->
+<section id="register">
+  <h2>Registrasi</h2>
+  <label for="regName">Nama</label>
+  <input type="text" id="regName" autocomplete="name" />
+  <label for="regEmail">Email</label>
+  <input type="email" id="regEmail" autocomplete="email" />
+  <label for="regPassword">Password</label>
+  <input type="password" id="regPassword" autocomplete="new-password" />
+  <label for="regPasswordConfirm">Konfirmasi Password</label>
+  <input type="password" id="regPasswordConfirm" autocomplete="new-password" />
+  <div id="registerError" class="error"></div>
+  <button class="submit-btn" onclick="register()">Daftar</button>
+</section>
+
+<!-- Dashboard -->
+<section id="dashboard">
+  <h2>Dashboard</h2>
+  <p><b>Jumlah Pengaduan:</b> <span id="totalComplaints">0</span></p>
+  <p><b>Pengaduan Diproses:</b> <span id="processingComplaints">0</span></p>
+  <p><b>Pengaduan Selesai:</b> <span id="completedComplaints">0</span></p>
+  <h3>Pengaduan Terbaru</h3>
+  <div id="complaintList"></div>
+</section>
+
+<!-- Complaint Form -->
+<section id="complaintForm">
+  <h2>Form Pengaduan</h2>
+  <label for="category">Kategori</label>
+  <select id="category">
+    <option value="">-- Pilih Kategori --</option>
+    <option value="Kecelakaan">Kecelakaan</option>
+    <option value="Pelanggaran K3">Pelanggaran K3</option>
+    <option value="Alat Pelindung Rusak">Alat Pelindung Rusak</option>
+    <option value="Kebersihan Area">Kebersihan Area</option>
+    <option value="Lainnya">Lainnya</option>
+  </select>
+  <label for="location">Lokasi</label>
+  <input type="text" id="location" placeholder="Misal: Gudang, Kantor, dll." />
+  <label for="description">Deskripsi</label>
+  <textarea id="description" rows="5" placeholder="Deskripsikan pengaduan Anda"></textarea>
+  <div id="complaintError" class="error"></div>
+  <button class="submit-btn" onclick="submitComplaint()">Kirim Pengaduan</button>
+  <div id="complaintSuccess" class="success"></div>
+</section>
+
+<!-- Profile -->
+<section id="profile">
+  <h2>Profil Saya</h2>
+  <p><b>Nama:</b> <span id="profileName"></span></p>
+  <p><b>Email:</b> <span id="profileEmail"></span></p>
+  <button class="submit-btn" onclick="logout()">Logout</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
